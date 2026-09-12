@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import type { Itechnology } from '../types/technologyType';
+import AvailableCards from './AvailableCards';
 
 interface TechnologiesProps{
     technologiesPromise: Promise<Itechnology[]>
@@ -21,9 +22,14 @@ const Technologies = ({technologiesPromise}: TechnologiesProps) => {
                     Technologies</span>
             </h2>
             <p>Pick one technology per category to build your ideal stack.</p>
-            <div>
-                <div></div>
-                <div>Your stack</div>
+            
+            
+            <div className='grid grid-cols-1 lg:grid-cols-4 gap-6 items-start'>
+                <div className='lg: col-span-3'>
+                    <AvailableCards technologies={technologies}></AvailableCards>
+                </div>
+                
+                {/* <div><StackCard/></div> */}
             </div>
         </div>
     );
