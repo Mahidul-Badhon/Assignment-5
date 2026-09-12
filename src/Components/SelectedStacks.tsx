@@ -19,6 +19,9 @@ const SelectedStacks = ({selectedCards, setSelectedCards}: IselectedStacksProps)
         )
     }
     
+    const handleRemoveAllCards = ()=>{
+        setSelectedCards([])
+    }
 
     return (
         <div>
@@ -31,7 +34,7 @@ const SelectedStacks = ({selectedCards, setSelectedCards}: IselectedStacksProps)
                   ) 
                 })
             }
-            <button className='text-center text-red-500 border border-red-500 rounded-md w-full py-2.5 mt-12'>Remove All</button>
+            <button onClick={handleRemoveAllCards} className='text-center text-red-500 border border-red-500 rounded-md w-full py-2.5 mt-12'>Remove All</button>
         </div>
     );
 };

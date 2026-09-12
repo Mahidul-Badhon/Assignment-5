@@ -10,6 +10,14 @@ interface ISelectedStacksCardProps{
 }
 
 const SelectedStacksCard = ({card, selectedCards, setSelectedCards}: ISelectedStacksCardProps) => {
+    
+    const handleRemoveCard = (card:Itechnology) =>{
+        const remainCards = selectedCards.filter(
+            (selectedCard) => selectedCard.id != card.id
+        )
+        setSelectedCards(remainCards)
+    }
+    
     return (
         <div className='flex justify-between items-center border border-gray-300 mt-2 mb-2 rounded-md p-3'>
             
@@ -22,7 +30,7 @@ const SelectedStacksCard = ({card, selectedCards, setSelectedCards}: ISelectedSt
                 </div>
             </div>
 
-            <span><ImCross /></span>
+            <span onClick={() => handleRemoveCard(card)}><ImCross /></span>
 
         </div>
     );
