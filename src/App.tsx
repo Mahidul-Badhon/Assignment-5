@@ -1,9 +1,11 @@
+import NavBar from "./Components/NavBar"
+
 function App() {
 
   return (
     <>
 
-    <h2>This is the world </h2>
+    <NavBar />
       
     </>
   )
