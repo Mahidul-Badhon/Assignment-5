@@ -5,7 +5,6 @@ import SelectedStacks from './SelectedStacks';
 
 interface TechnologiesProps {
     technologiesPromise: Promise<Itechnology[]>
-    settechnologyState: Dispatch<SetStateAction<Itechnology[]>>
 }
 
 const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
@@ -22,13 +21,13 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
 
         <div className='container mx-auto'>
             <h2 className='font-extrabold text-[36px]'>Explore the
-                <span className='bg-linear-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent'>
-                    Technologies</span>
+                <span className='bg-linear-to-r from-[#EC4899] to-[#8B5CF6] bg-clip-text text-transparent'>
+                    {` `}Technologies</span>
             </h2>
-            <p>Pick one technology per category to build your ideal stack.</p>
+            <p className='text-gray-500'>Pick one technology per category to build your ideal stack.</p>
 
 
-            <div className='grid grid-cols-1 lg:grid-cols-4 gap-6 items-start'>
+            <div className='grid grid-cols-1 lg:grid-cols-4 gap-6 items-start mt-8'>
                 <div className='lg:col-span-3'>
                     <AvailableCards technologies={technologyState} selectedCards={selectedCards} setSelectedCards={setSelectedCards}></AvailableCards>
                 </div>

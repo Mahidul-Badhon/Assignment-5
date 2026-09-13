@@ -12,7 +12,7 @@ compare them side by side, and put together the stack that fits your <br />
 next project.</p>
 
             <button className='bg-linear-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] text-white mr-5 my-3 p-3 rounded-md'>Explore Technologies</button>
-            <button className='border-gray-400 border-1 p-3 px-5 w-55 rounded-md'>Learn More</button>
+            <button className='border-gray-300 border p-3 px-5 w-55 rounded-md'>Learn More</button>
             </div>
             <div className='mt-3 lg:mt-0'>
                 <img src={BannerLogo} alt="This is banner image" className='w-full max-w-md lg:max-w-none h-auto'/>

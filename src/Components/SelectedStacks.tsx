@@ -17,7 +17,7 @@ const SelectedStacks = ({ technologies, technologyState, settechnologyState,sele
     if(selectedCards.length === 0){
         return(
             <div>
-                <p className='text-gray-400'>No technologies selected</p>
+                <p className='text-gray-400'>No technologies selected yet</p>
                 <div className='w-full text-center py-3 mt-3 border-gray-300 border text-gray-300'>Your stack is empty</div>
             </div>
         )
