@@ -40,7 +40,7 @@ const TechnologyCards = ({technology, selectedCards, setSelectedCards}:Itechnolo
                     src={technology.icon}
                     alt="icon" />
                 {/* </figure> */}
-                <div className="badge badge-secondary">{technology.badge}</div>
+                <div className="badge badge-secondary bg-blue-100 border-0 text-blue-900">{technology.badge}</div>
             </div>
 
 
