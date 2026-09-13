@@ -1,21 +1,26 @@
 import React, { type Dispatch, type SetStateAction } from 'react';
 import type { Itechnology } from '../types/technologyType';
 import { ImCross } from 'react-icons/im';
+import { toast } from 'react-toastify';
 
 interface ISelectedStacksCardProps{
+    technologies: Itechnology[]
+    technologyState: Itechnology[]
+    settechnologyState: Dispatch<SetStateAction<Itechnology[]>>
     card: Itechnology
     selectedCards: Itechnology[]
     setSelectedCards: Dispatch<SetStateAction<Itechnology[]>>
 
 }
 
-const SelectedStacksCard = ({card, selectedCards, setSelectedCards}: ISelectedStacksCardProps) => {
+const SelectedStacksCard = ({technologies,technologyState, settechnologyState, card, selectedCards, setSelectedCards}: ISelectedStacksCardProps) => {
     
     const handleRemoveCard = (card:Itechnology) =>{
         const remainCards = selectedCards.filter(
             (selectedCard) => selectedCard.id != card.id
         )
         setSelectedCards(remainCards)
+        toast(`${card.name} removed from the stack!`)
     }
     
     return (

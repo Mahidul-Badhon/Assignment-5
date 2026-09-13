@@ -6,24 +6,34 @@ import { toast } from 'react-toastify';
 interface ItechnologyCard{
     technology: Itechnology
     selectedCards: Itechnology[]
-        setSelectedCards: Dispatch<SetStateAction<Itechnology[]>>
+    setSelectedCards: Dispatch<SetStateAction<Itechnology[]>>
+    
 }
 
 const TechnologyCards = ({technology, selectedCards, setSelectedCards}:ItechnologyCard) => {
     
-     const [isSelected, setIsSelected] = useState(false)
-     console.log(isSelected)
+    //  const [isSelected, setIsSelected] = useState(false)
+    //  console.log(isSelected)
+    const isSelected = selectedCards.some(
+        (selectedCards) => selectedCards.id === technology.id
+    )
     
     const handleSelectedStack = () =>{
-        setIsSelected(true)
+
+        if(isSelected){
+            return
+        }
+        setSelectedCards((prev) => [...prev, technology])
+        
+        // setIsSelected(true)
         toast(`${technology.name} added to stack!`)
 
         //selected cards added
-        setSelectedCards([...selectedCards, technology])
+        // setSelectedCards([...selectedCards, technology])
     }
 
     return (
-        <div className="card bg-base-100 w-full shadow-md p-4 rounded-xl border border-gray-100 flex flex-col justify-between">
+        <div className={`card bg-base-100 w-full shadow-md p-4 rounded-xl border ${isSelected ? 'border-red-400' :'border-gray-100'} flex flex-col justify-between`}>
             <div className='flex justify-between items-start mb-4'>
                 {/* <figure> */}
                 <img className='w-10 h-10 object-contain'
@@ -50,7 +60,7 @@ const TechnologyCards = ({technology, selectedCards, setSelectedCards}:Itechnolo
 
                 </div>
                 <button onClick={()=>handleSelectedStack()} className='bg-black text-white w-full py-2.5 rounded-md mt-2 text-center transition-all hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed' disabled={isSelected} >
-                    {isSelected === true ? "Added" : "Add to cart"}
+                    {isSelected === true ? "Added to stack" : "Add to stack"}
                     </button>
             </div>
         </div>

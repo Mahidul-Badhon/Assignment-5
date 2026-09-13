@@ -1,10 +1,11 @@
-import React, { use, useState } from 'react';
+import React, { use, useState, type Dispatch, type SetStateAction } from 'react';
 import type { Itechnology } from '../types/technologyType';
 import AvailableCards from './AvailableCards';
 import SelectedStacks from './SelectedStacks';
 
 interface TechnologiesProps {
     technologiesPromise: Promise<Itechnology[]>
+    settechnologyState: Dispatch<SetStateAction<Itechnology[]>>
 }
 
 const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
@@ -14,6 +15,7 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
     // console.log(technologies, "technologies")
 
     const [selectedCards, setSelectedCards] = useState<Itechnology[]>([])
+    const [technologyState, settechnologyState] = useState<Itechnology[]>(technologies)
     return (
 
 
@@ -27,15 +29,15 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
 
 
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-6 items-start'>
-                <div className='lg: col-span-3'>
-                    <AvailableCards technologies={technologies} selectedCards={selectedCards} setSelectedCards={setSelectedCards}></AvailableCards>
+                <div className='lg:col-span-3'>
+                    <AvailableCards technologies={technologyState} selectedCards={selectedCards} setSelectedCards={setSelectedCards}></AvailableCards>
                 </div>
 
                 <div className='lg:col-span-1 border-gray-300 border rounded-md p-3'>
             
                         <h2 className='font-bold'>Your Stack</h2>
                     
-                    <SelectedStacks selectedCards={selectedCards} setSelectedCards={setSelectedCards}></SelectedStacks>
+                    <SelectedStacks technologies={technologies} technologyState={technologyState} settechnologyState={settechnologyState} selectedCards={selectedCards} setSelectedCards={setSelectedCards}></SelectedStacks>
                 </div>
 
                 {/* <div><StackCard/></div> */}

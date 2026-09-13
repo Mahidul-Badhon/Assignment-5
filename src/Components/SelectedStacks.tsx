@@ -1,13 +1,17 @@
 import React, { type Dispatch, type SetStateAction } from 'react';
 import type { Itechnology } from '../types/technologyType';
 import SelectedStacksCard from './SelectedStacksCard';
+import { toast } from 'react-toastify';
 
 interface IselectedStacksProps{
+    technologies: Itechnology[]
+    technologyState: Itechnology[]
+    settechnologyState: Dispatch<SetStateAction<Itechnology[]>>
     selectedCards: Itechnology[]
     setSelectedCards: Dispatch<SetStateAction<Itechnology[]>>
 }
 
-const SelectedStacks = ({selectedCards, setSelectedCards}: IselectedStacksProps) => {
+const SelectedStacks = ({ technologies, technologyState, settechnologyState,selectedCards, setSelectedCards}: IselectedStacksProps) => {
     console.log(selectedCards, "Selected cards are")
 
     if(selectedCards.length === 0){
@@ -20,7 +24,9 @@ const SelectedStacks = ({selectedCards, setSelectedCards}: IselectedStacksProps)
     }
     
     const handleRemoveAllCards = ()=>{
+        // settechnologyState((prev) => [...prev, ...selectedCards]);
         setSelectedCards([])
+        toast(`Al the card had been removed!`)
     }
 
     return (
@@ -30,7 +36,7 @@ const SelectedStacks = ({selectedCards, setSelectedCards}: IselectedStacksProps)
             {
                 selectedCards.map((card:Itechnology) =>{
                   return (
-                    <SelectedStacksCard key={card.id} card={card} selectedCards={selectedCards} setSelectedCards={setSelectedCards}></SelectedStacksCard>
+                    <SelectedStacksCard key={card.id} technologies={technologies} technologyState={technologyState} settechnologyState={settechnologyState} card={card} selectedCards={selectedCards} setSelectedCards={setSelectedCards}></SelectedStacksCard>
                   ) 
                 })
             }

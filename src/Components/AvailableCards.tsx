@@ -14,7 +14,12 @@ const AvailableCards = ({ technologies, selectedCards, setSelectedCards }: Iavai
             {
                 technologies.map((technology: Itechnology) => {
                     return (
-                        <TechnologyCards key={technology.id} technology={technology} selectedCards={selectedCards} setSelectedCards={setSelectedCards}></TechnologyCards>
+                        <TechnologyCards 
+                        key={technology.id}
+                        technology={technology}
+                        selectedCards={selectedCards}
+                        setSelectedCards={setSelectedCards}>
+                        </TechnologyCards>
                     )
                 })
             }
